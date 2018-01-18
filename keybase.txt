@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/lykry
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://lykry.sh
+  * I am lykry (https://keybase.io/lykry) on keybase.
+  * I have a public key with fingerprint CC54 0488 8B75 A8E3 BE02  C677 5422 384E F4E6 1F4F
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01019ea1c2439389581af586d0564d4928188c1bb95466c33c429bc8aed18b2ed6230a",
+      "fingerprint": "cc5404888b75a8e3be02c6775422384ef4e61f4f",
+      "host": "keybase.io",
+      "key_id": "5422384ef4e61f4f",
+      "kid": "01019ea1c2439389581af586d0564d4928188c1bb95466c33c429bc8aed18b2ed6230a",
+      "uid": "e45cb7490373424561d325ea43a03719",
+      "username": "lykry"
+    },
+    "service": {
+      "hostname": "lykry.sh",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1516051420,
+  "expire_in": 157680000,
+  "prev": "87e051ef39b12aa1deacf6ce206f2730838b2ecb6200a5240481b8661276e3eb",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMIiAnicrVJdSBVBGL1WaqmVqYhkT0uFhMjO7Ozu7E3KyoiyoOiPQrvszM69rj93
+r3fXq7ebFUV/FBFlEEFFQUR0I+3FjMyUHkqhpKBMwvxBFEOIRB+Eslkp6KHH5mWY
+M+ec+c4338vF8z0pCW2ztHfkzLLChO6OS7Weg2W5n2MCsYyo4I0JlWxuY1UGsx1f
+pWkIXkEEItCYDihEkiZhTcZA98tYMURZQQbSIAYYU0CIJiNFoZJEEdQIxTozACaQ
+GQqURF3IF/xmMMDCobAZdLgtpTISEcaYqLKOmUSYCKmiqjKCUMKI+RFTgB/5ubDc
+sl0FL47oNiswLY7xg2+uvH/w/3PdtXN2DMmUqEgTJVVCEMkKMCQoMx1JOoeA5hJt
+Fg7q1Yyzq6KV4ajQkC9wKGJS5nbVjfH3dYFdzkWhsOVY1KriaLnjhLyuyImGXFYd
+I77feh8xgwbvHxdEWNg2raDgBZxJHdM1BDJQRBkgKOYLrD5khpnPdBmyqmCRL/cZ
+FuGWWGWcx/ySRgDUdWAwnfoVyqCo+KEqiVhyo1OiQFHUZej+ECBYUQBUFSYxIriJ
+aoIW9+amjh7gnrYZCOpObZgJDZ0vShd4ElI8SYnz3MHypCxK/zNu59uSZ+13j+pv
+D++sj2es3HekL3nFq5nUftK+Y3B877emx7vHQ/Hvvs7st60PU/fcubX68y5xWVL2
+dM3g9p9pC+9Nh3Da1Pz0ruxIorf4dN77nvHcA4VPH9z+2Hx9prRrIn8462xOz6rp
+XehHx9v3D+L25TOFoxM1g/fX3LzzauvHaFfyPDBb0hjJ7elvlIf3d93tLHqT8Hwb
+Gold2PCuM2PTh7FDsYGNp3rvrWov2ZR58tjm4qapyWacZ3XHKgayWj4I5KiUG9hS
+13arwawYWX9j7dgGXDazNGfdlfiJhonWc1ba4ZmLrzta8oaW9MWzMn1k9OqnL0XX
+Ag8n06vpM7Zw+VDvk6/HfwFTtkJ5
+=Qx6C
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/lykry
+
+==================================================================
