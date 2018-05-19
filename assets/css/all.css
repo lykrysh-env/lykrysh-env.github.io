@@ -1,8 +1,0 @@
-@font-face { font-family: hell; src: url('NeoPrintM319.otf');font-weight: 400; }
-body { background: #FCF8FE; text-aling:center; }
-p { color: #9514eb; font-family: hell; font-weight:normal; font-size: 18px;}
-.mid {  background: #FCF8FE; width: 480px; height: 50vh; text-align: center; margin: 0 auto; margin-top: 25vh;}
-.mid .goto { cursor: pointer;}
-.mid .goto:hover { opacity: 0.7;}
-.mid .goto img { margin-bottom:12px; width:50px; height:50px; border:0;  }
-hr { padding: 0; margin-top: 48px; margin-bottom: 36px; background-color: #bf72f3; border: 0px; height: 2px;}
