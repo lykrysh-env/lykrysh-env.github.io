@@ -1,0 +1,43 @@
+.pntcursor {cursor:pointer;}
+
+.noselect {
+  -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
+}
+
+small {
+  font-size: 1.1rem;
+  font-family: reg; font-weight:normal;  
+  color: #000;
+}
+
+.kwcontainer {
+ line-height: 2.4rem;
+ margin-bottom: 1.6rem;
+}
+
+.but {
+ border: 0; padding-bottom:1px;padding-top:0px;background: #a5a5a5;
+}
+
+.but:hover{
+ -webkit-transform: rotate(4deg);transform: rotate(4deg);
+ background: #000;color: #a5a5a5;
+}
+
+.but:active {
+ -webkit-transform: scale(1.05) rotate(4deg);transform: scale(1.05) rotate(4deg);
+ background: #000;color: #fff;
+}
+
+.kwbut {
+ display: inline-block;  
+ margin: 5px 3px; padding-left:14px;padding-right:14px;
+ -webkit-transform: perspective(1px) translateZ(0);transform: perspective(1px) translateZ(0);
+ -webkit-transition-duration: 0.3s;transition-duration: 0.3s;
+ -webkit-transition-property: transform;transition-property: transform;
+}
