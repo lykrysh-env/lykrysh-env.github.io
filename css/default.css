@@ -28,7 +28,7 @@ nav {
   position: fixed;
   border-top: 0.2rem solid #000;
   height: 14rem;
-  background: url(/images/lykrysh-600.png) bottom right no-repeat;
+  background: url(/images/lykrysh-300.png) bottom right no-repeat;
   background-size: 14rem 14rem;
 }
 
@@ -93,6 +93,11 @@ h1 {
 
 h2 {
   font-size: 1.2rem;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: -3.2rem;
 }
 
 article .header {

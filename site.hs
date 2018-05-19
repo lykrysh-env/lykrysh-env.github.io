@@ -26,8 +26,9 @@ main = hakyll $ do
         route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
+            let (_, laterposts) = splitAt 4 posts
             let archiveCtx =
-                    listField "posts" postCtx (return posts) `mappend`
+                    listField "posts" postCtx (return laterposts) `mappend`
                     constField "title" "Archives"            `mappend`
                     defaultContext
 
@@ -35,7 +36,6 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
-
 
     match "index.html" $ do
         route idRoute
