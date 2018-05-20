@@ -3,27 +3,14 @@ title: Home
 ---
 
 <small>
-<div class="kwcontainer noselect">
-	<a data-stateName="tag01" class="kwbut but pntcursor" >tag01</a>
-	<a data-stateName="tag02" class="kwbut but pntcursor" >tag02</a>
-	<a data-stateName="tag03" class="kwbut but pntcursor" >tag03</a>
-	<a data-stateName="tag04" class="kwbut but pntcursor" >tag04</a>
-	<a data-stateName="tag05" class="kwbut but pntcursor" >tag05</a>
-	<a data-stateName="tag06" class="kwbut but pntcursor" >tag06</a>
-	<a data-stateName="tag07" class="kwbut but pntcursor" >tag07</a>
-	<a data-stateName="tag08" class="kwbut but pntcursor" >tag08</a>
-	<a data-stateName="tag09" class="kwbut but pntcursor" >tag09</a>
-	<a data-stateName="tag10" class="kwbut but pntcursor" >tag10</a>
-	<a data-stateName="tag11" class="kwbut but pntcursor" >tag11</a>
-	<a data-stateName="tag12" class="kwbut but pntcursor" >tag12</a>
-	<a data-stateName="tag13" class="kwbut but pntcursor" >tag13</a>
-	<a data-stateName="tag14" class="kwbut but pntcursor" >tag14</a>
-	<a data-stateName="tag15" class="kwbut but pntcursor" >tag15</a>
-	<a data-stateName="tag16" class="kwbut but pntcursor" >tag16</a>
+<div class="kwcontainer kwpost noselect">
+    $if(taglist)$
+        $taglist$
+    $endif$
 </div>
 </small>
 
-<h1>What I'm up to lately:</h1>
+<h1>Lately developed:</h1>
 $partial("templates/post-list.html")$
 
 <p><br><a href="/archive.html">...more</a></p>

@@ -78,11 +78,25 @@ main a:active, footer a:active {
   width:100%;
 }
 
+.boldname {
+  font-family: med;
+}
+
 .grey {
-  font-family: thin;
+  font-family: lite;
+  color: #555;
 }
 .grey a {
-  border-bottom: 1px solid #555;
+  border-bottom: 2px solid #777;
+  color: #555;
+}
+.grey a:hover {
+  border-bottom: 2px solid #000;
+  color: #ddd;
+}
+.grey a:active {
+  border-bottom: 2px solid #777;
+  color: #555;
 }
 
 h1 {

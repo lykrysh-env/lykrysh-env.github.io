@@ -1,5 +1,6 @@
 ---
 title: Carpe Diem
+tags: tag04,tag05,tag06
 ---
 
 Fusce tortor quam, egestas in posuere quis, porttitor vel turpis. Donec
