@@ -53,7 +53,7 @@ main a, footer a {
 }
 
 main a:hover, footer a:hover {
-  color: #fff;
+  color: #ccc;
   background-color: #000;
   text-decoration: none;
   outline: 0;
@@ -61,10 +61,10 @@ main a:hover, footer a:hover {
 }
 
 main a:active, footer a:active {
-  color: #000;
-  background: none;
+  color: #fff;
   outline: 0;
   cursor: pointer;
+ -webkit-transform: scale(1.05);transform: scale(1.05);
 }
 
 .shade {
@@ -95,8 +95,7 @@ main a:active, footer a:active {
   color: #ddd;
 }
 .grey a:active {
-  border-bottom: 2px solid #777;
-  color: #555;
+  color: #fff;
 }
 
 h1 {
