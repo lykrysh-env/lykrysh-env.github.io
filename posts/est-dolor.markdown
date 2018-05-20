@@ -1,6 +1,7 @@
 ---
-title: S.P.Q.R.
-tags: tag01,tag02,tag09
+title: Est dolor
+date: 2010-09-10
+tags: tag06,tag07,tag08
 ---
 
 Mauris in lorem nisl. Maecenas tempus facilisis ante, eget viverra nisl

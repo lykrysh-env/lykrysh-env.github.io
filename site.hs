@@ -2,7 +2,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid                     (mappend)
 import           Data.List                       (intercalate)
-import           Data.Ord                        (comparing)
 import           Hakyll
 import           Text.Blaze.Html                 (toHtml, toValue, (!))
 import           Text.Blaze.Html.Renderer.String (renderHtml)
@@ -86,7 +85,7 @@ renderTagList' :: Tags -> Compiler (String)
 renderTagList' = renderTags makeLink (intercalate ", ")
   where
     makeLink tag url count _ _ = renderHtml $
-        H.a ! A.href (toValue url) $ toHtml (tag ++ " " ++ show count)
+        H.a ! A.href (toValue url) $ toHtml (tag)
 
 descendingTags :: (String, [Identifier]) -> (String, [Identifier]) -> Ordering
-descendingTags x y = comparing fst y x
+descendingTags x y = compare (length (snd y)) (length (snd x))

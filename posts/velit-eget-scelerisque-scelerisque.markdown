@@ -1,6 +1,7 @@
 ---
-title: Tu Quoque
-tags: tag01,tag05,tag06,tag07,tag09,tag04,tag10,tag11,tag12,tag13,tag14,tag15
+title: Velit eget scelerisque scelerisque
+date: 2010-09-09
+tags: tag06
 ---
 
 Vestibulum leo turpis, dignissim quis ultrices sit amet, iaculis ac ligula.

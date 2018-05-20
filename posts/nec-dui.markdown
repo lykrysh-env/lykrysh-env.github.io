@@ -1,6 +1,7 @@
 ---
-title: Tu Quoque
-tags: tag06
+title: Nec dui
+date: 2010-09-18
+tags: tag01,tag05,tag06,tag07,tag09,tag04,tag10,tag11,tag12,tag13,tag14,tag15
 ---
 
 Vestibulum leo turpis, dignissim quis ultrices sit amet, iaculis ac ligula.

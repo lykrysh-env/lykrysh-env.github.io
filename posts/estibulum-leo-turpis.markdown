@@ -1,6 +1,7 @@
 ---
-title: S.P.Q.R.
-tags: tag06,tag07,tag08
+title: Estibulum leo turpis
+date: 2010-09-06
+tags: tag01,tag02,tag09
 ---
 
 Mauris in lorem nisl. Maecenas tempus facilisis ante, eget viverra nisl

@@ -18,7 +18,6 @@ header {
 }
 
 nav {
-  text-align: right;
   font-family: thin;
 }
 
@@ -99,9 +98,9 @@ main a:active, footer a:active {
 }
 
 h1 {
-  font-size: 1.8rem;
-  font-family: lite; font-weight:normal; line-height: 3.2rem; 
-  color: #ddd;
+  font-size: 1.2rem;
+  font-family: med; font-weight:normal; line-height: 3.2rem; 
+  color: #eee;
 }
 
 h2 {
@@ -125,7 +124,7 @@ article .header {
 }
 
 .logo a:hover{
-  color: #fff;
+  color: #444;
   background: none;
   text-decoration: none;
   outline: 0;
@@ -133,7 +132,7 @@ article .header {
 }
 
 .logo a:active {
-  color: #000;
+  color: #fff;
   background: none;
   outline: 0;
   cursor: pointer;
@@ -151,11 +150,11 @@ article .header {
     padding: 0;
   }
   header {
-    margin: 0.5rem 0 2rem;
-    padding: 1.2rem 0 0rem;
+    margin: 0.3rem 0 2rem;
+    padding: 1.0rem 0 0rem;
   }
   nav {
-    margin: 0 auto 3rem;
+    padding-bottom: 1.6rem;
     text-align: center;
   }
   footer {
@@ -163,13 +162,12 @@ article .header {
   }
   .logo {
     text-align: center;
-    margin: 1rem auto 1rem;
+    margin: 0.8rem auto 0.4rem;
   }
   .logo a {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
   }
-  nav a {
-    display: block;
+  nav {
     line-height: 1.6;
   }
 }
@@ -186,11 +184,11 @@ article .header {
     padding: 0;
   }
   header {
-    margin: 0.5rem 0 2rem;
-    padding: 1.2rem 0 0rem;
+    margin: 0.3rem 0 2rem;
+    padding: 1.0rem 0 0rem;
   }
   nav {
-    margin: 0 auto 3rem;
+    padding-bottom: 1.6rem;
     text-align: center;
   }
   footer {
@@ -198,13 +196,12 @@ article .header {
   }
   .logo {
     text-align: center;
-    margin: 1rem auto 1rem;
+    margin: 0.8rem auto 0.4rem;
   }
   .logo a {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
   }
-  nav a {
-    display: inline;
+  nav {
     margin: 0 0;
   }
 }
@@ -226,11 +223,11 @@ article .header {
   }
   nav {
     margin: 0;
+    padding-bottom: 0rem;
     text-align: right;
   }
-  nav a {
+  nav {
     margin: 0 0 0 1.2rem;
-    display: inline;
   }
   footer {
     text-align: left;
@@ -241,6 +238,6 @@ article .header {
   }
   .logo a {
     float: left;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 }
