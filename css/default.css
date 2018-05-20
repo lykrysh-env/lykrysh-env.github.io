@@ -2,6 +2,18 @@
 @font-face { font-family: lite; src: url('/images/RobotoMono-Light.ttf')}
 @font-face { font-family: thin; src: url('/images/RobotoMono-Thin.ttf')}
 @font-face { font-family: med; src: url('/images/RobotoMono-Medium.ttf')}
+@font-face { font-family: tag; src: url('/images/GloriaHallelujah.ttf')}
+
+.pntcursor {cursor:pointer;}
+
+.noselect {
+  -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
+}
 
 html {}
 
@@ -19,6 +31,38 @@ header {
 
 nav {
   font-family: thin;
+}
+
+small {
+  font-size: 1.2rem;
+  font-family: tag; font-weight:normal;  
+}
+
+.fork {
+  z-index:10;
+  position: fixed;
+  bottom: 15.5rem; 
+  height: 6rem;
+  width: 10rem;
+  background: url(/images/fork.png) bottom right no-repeat;
+  background-size: 10rem 6rem;
+  color: #fff;
+  text-align: center;
+}
+.fork small {
+  line-height: 4.4rem; 
+}
+.fork small a {
+  color: #ddd; 
+}
+.fork small a:hover {
+  color: #fff; 
+}
+.fork small a:active {
+  color: #e7002d; 
+}
+.fork .tilt {
+ -webkit-transform: rotate(-6deg);transform: rotate(-6deg);
 }
 
 .bottom {
@@ -170,6 +214,9 @@ article .header {
   nav {
     line-height: 1.6;
   }
+  .fork {
+    right: 5%;
+  }
 }
 
 @media (min-width: 320px) {
@@ -203,6 +250,9 @@ article .header {
   }
   nav {
     margin: 0 0;
+  }
+  .fork {
+    right: 5%;
   }
 }
 
@@ -239,5 +289,8 @@ article .header {
   .logo a {
     float: left;
     font-size: 1.2rem;
+  }
+  .fork {
+    right: calc(50% - 30rem)
   }
 }
