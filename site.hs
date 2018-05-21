@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid                     (mappend)
+import           Data.Monoid                     (mappend, (<>))
 import           Data.List                       (intercalate)
 import           Hakyll
 import           Text.Blaze.Html                 (toHtml, toValue, (!))
@@ -9,22 +9,12 @@ import qualified Text.Blaze.Html5                as H
 import qualified Text.Blaze.Html5.Attributes     as A
 
 --------------------------------------------------------------------------------
+
+whereareposts :: Pattern
+whereareposts = "bin/*"
+
 main :: IO ()
 main = hakyll $ do
-    tags <- buildTags "posts/*" (fromCapture "tags/*.html")
-
-    tagsRules tags $ \tag pattern -> do
-        let title = "With keyword: " ++ tag
-        route idRoute
-        compile $ do
-            posts <- recentFirst =<< loadAll pattern
-            let ctx = constField "title" title `mappend` 
-                      listField "posts" postCtx (return posts) `mappend` defaultContext
-
-            makeItem ""
-                >>= loadAndApplyTemplate "templates/tag.html" ctx
-                >>= loadAndApplyTemplate "templates/default.html" ctx
-                >>= relativizeUrls
 
     match "images/*" $ do
         route   idRoute
@@ -34,7 +24,21 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    match "posts/*" $ do
+    tags <- buildTags whereareposts (fromCapture "tags/*.html")
+
+    tagsRules tags $ \tag pattern -> do
+        let title = "With keyword: " ++ tag
+        route idRoute
+        compile $ do
+            posts_entire <- recentFirst =<< loadAll pattern
+            let ctx = constField "title" title `mappend` 
+                      listField "posts" postCtx (return posts_entire) `mappend` defaultContext
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/tag.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= relativizeUrls
+
+    match whereareposts $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"  (postCtxWithTags tags)
@@ -44,12 +48,11 @@ main = hakyll $ do
     create ["archive.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            posts <- recentFirst =<< loadAll whereareposts
             let (_, laterposts) = splitAt 4 posts
             let archiveCtx =
                     listField "posts" postCtx (return laterposts) `mappend`
                     constField "title" "Archives" `mappend` defaultContext
-
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
@@ -58,12 +61,11 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            posts <- fmap (take 4) . recentFirst =<< loadAll "posts/*"
+            posts_lately <- fmap (take 4) . recentFirst =<< loadAll whereareposts
             let indexCtx =
                     field "taglist" (\_ -> renderTagList' (sortTagsBy descendingTags tags)) `mappend`
-                    listField "posts" postCtx (return posts) `mappend`
+                    listField "posts" postCtx (return posts_lately) `mappend`
                     constField "title" "" `mappend` defaultContext
-
             getResourceBody
                 >>= applyAsTemplate indexCtx
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
@@ -71,8 +73,8 @@ main = hakyll $ do
 
     match "templates/*" $ compile templateBodyCompiler
 
-
 --------------------------------------------------------------------------------
+
 postCtx :: Context String
 postCtx =
     dateField "date" "%m/%d/%y" `mappend`
@@ -89,3 +91,4 @@ renderTagList' = renderTags makeLink (intercalate ", ")
 
 descendingTags :: (String, [Identifier]) -> (String, [Identifier]) -> Ordering
 descendingTags x y = compare (length (snd y)) (length (snd x))
+
