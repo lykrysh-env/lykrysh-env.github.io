@@ -29,7 +29,7 @@ main = hakyll $ do
     tags <- buildTags whereareposts (fromCapture "words/*.html")
 
     tagsRules tags $ \tag pattern -> do
-        let title = "With keyword: " ++ tag
+        let title = tag
         route cleanRoute
         compile $ do
             posts_entire <- recentFirst =<< loadAll pattern
@@ -76,6 +76,11 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
                 >>= cleanIndexUrls
+
+    match "404.html" $ do
+        route idRoute
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
     match "templates/*" $ compile templateBodyCompiler
 
