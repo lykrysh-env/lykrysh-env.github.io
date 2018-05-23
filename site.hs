@@ -1,12 +1,14 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid                     (mappend, (<>))
-import           Data.List                       (intercalate)
+import           Data.List                       (intercalate, isSuffixOf)
 import           Hakyll
 import           Text.Blaze.Html                 (toHtml, toValue, (!))
 import           Text.Blaze.Html.Renderer.String (renderHtml)
 import qualified Text.Blaze.Html5                as H
 import qualified Text.Blaze.Html5.Attributes     as A
+import           System.FilePath.Posix  (takeBaseName,takeDirectory,(</>))
+
 
 --------------------------------------------------------------------------------
 
@@ -28,7 +30,7 @@ main = hakyll $ do
 
     tagsRules tags $ \tag pattern -> do
         let title = "With keyword: " ++ tag
-        route idRoute
+        route cleanRoute
         compile $ do
             posts_entire <- recentFirst =<< loadAll pattern
             let ctx = constField "title" title `mappend` 
@@ -37,31 +39,34 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/tag.html" ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
+                >>= cleanIndexUrls
 
     match whereareposts $ do
-        route $ setExtension "html"
+        route $ cleanRoute
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"  (postCtxWithTags tags)
             >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
 
-    create ["archive.html"] $ do
-        route idRoute
+    create ["oldies.html"] $ do
+        route cleanRoute
         compile $ do
             posts <- recentFirst =<< loadAll whereareposts
-            let (_, laterposts) = splitAt 4 posts
+            let (_, laterposts) = splitAt 7 posts
             let archiveCtx =
+                    field "taglist" (\_ -> renderTagList' (sortTagsBy descendingTags tags)) `mappend`
                     listField "posts" postCtx (return laterposts) `mappend`
-                    constField "title" "Archives" `mappend` defaultContext
+                    constField "title" "Older projects" `mappend` defaultContext
             makeItem ""
-                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/oldies.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
+                >>= cleanIndexUrls
 
     match "index.html" $ do
         route idRoute
         compile $ do
-            posts_lately <- fmap (take 4) . recentFirst =<< loadAll whereareposts
+            posts_lately <- fmap (take 7) . recentFirst =<< loadAll whereareposts
             let indexCtx =
                     field "taglist" (\_ -> renderTagList' (sortTagsBy descendingTags tags)) `mappend`
                     listField "posts" postCtx (return posts_lately) `mappend`
@@ -70,6 +75,7 @@ main = hakyll $ do
                 >>= applyAsTemplate indexCtx
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
+                >>= cleanIndexUrls
 
     match "templates/*" $ compile templateBodyCompiler
 
@@ -91,4 +97,19 @@ renderTagList' = renderTags makeLink (intercalate ", ")
 
 descendingTags :: (String, [Identifier]) -> (String, [Identifier]) -> Ordering
 descendingTags x y = compare (length (snd y)) (length (snd x))
+
+cleanRoute :: Routes
+cleanRoute = customRoute createIndexRoute
+  where
+    createIndexRoute ident = takeDirectory p </> takeBaseName p </> "index.html"
+                            where p = toFilePath ident
+
+cleanIndexUrls :: Item String -> Compiler (Item String)
+cleanIndexUrls = return . fmap (withUrls clean)
+    where
+        idx = "index.html"
+        clean url
+            | idx `isSuffixOf` url = take (length url - length idx - 1) url
+            | otherwise            = url
+
 
