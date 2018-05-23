@@ -26,7 +26,7 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    tags <- buildTags whereareposts (fromCapture "tags/*.html")
+    tags <- buildTags whereareposts (fromCapture "words/*.html")
 
     tagsRules tags $ \tag pattern -> do
         let title = "With keyword: " ++ tag
@@ -42,7 +42,7 @@ main = hakyll $ do
                 >>= cleanIndexUrls
 
     match whereareposts $ do
-        route $ cleanRoute
+        route $ cleanpostRoute
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"  (postCtxWithTags tags)
             >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
@@ -70,7 +70,7 @@ main = hakyll $ do
             let indexCtx =
                     field "taglist" (\_ -> renderTagList' (sortTagsBy descendingTags tags)) `mappend`
                     listField "posts" postCtx (return posts_lately) `mappend`
-                    constField "title" "" `mappend` defaultContext
+                    constField "title" "Lykrysh" `mappend` defaultContext
             getResourceBody
                 >>= applyAsTemplate indexCtx
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
@@ -102,6 +102,12 @@ cleanRoute :: Routes
 cleanRoute = customRoute createIndexRoute
   where
     createIndexRoute ident = takeDirectory p </> takeBaseName p </> "index.html"
+                            where p = toFilePath ident
+
+cleanpostRoute :: Routes
+cleanpostRoute = customRoute createIndexRoute
+  where
+    createIndexRoute ident = takeBaseName p </> "index.html"
                             where p = toFilePath ident
 
 cleanIndexUrls :: Item String -> Compiler (Item String)
