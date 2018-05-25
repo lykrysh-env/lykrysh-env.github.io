@@ -2,6 +2,7 @@
 title: Velit eget scelerisque scelerisque
 date: 2010-09-09
 tags: tag06
+desc: nec turpis
 ---
 
 Vestibulum leo turpis, dignissim quis ultrices sit amet, iaculis ac ligula.

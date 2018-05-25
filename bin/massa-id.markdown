@@ -2,6 +2,7 @@
 title: Massa id
 date: 2010-09-14
 tags: tag14,tag15,tag03,tag04
+desc: nec turpis
 ---
 
 Vestibulum leo turpis, dignissim quis ultrices sit amet, iaculis ac ligula.
