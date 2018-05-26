@@ -41,28 +41,31 @@ small {
 .fork {
   z-index:10;
   position: fixed;
-  bottom: 15.5rem; 
-  height: 6rem;
-  width: 10rem;
-  background: url(/images/fork.png) bottom right no-repeat;
-  background-size: 10rem 6rem;
-  color: #fff;
-  text-align: center;
+  top: 25vh; 
+  right: 0;
+  height: 14rem;
+  width: 1.8rem;
+  background: #222;
+  padding-top: 3rem;
 }
+.fork:hover {
+  width: 2.1rem;
+}
+
 .fork small {
-  line-height: 4.4rem; 
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  line-height: 1.8rem;
 }
 .fork small a {
-  color: #ccc; 
+  color: #999; 
+  text-decoration: none;
 }
 .fork small a:hover {
   color: #fff; 
 }
 .fork small a:active {
   color: #e7002d; 
-}
-.fork .tilt {
- -webkit-transform: rotate(-6deg);transform: rotate(-6deg);
 }
 
 .bottom {
@@ -71,8 +74,6 @@ small {
   position: fixed;
   border-top: 0.2rem solid #000;
   height: 14rem;
-  background: url(/images/lykrysh-300.png) bottom right no-repeat;
-  background-size: 14rem 14rem;
 }
 
 footer {
@@ -183,7 +184,7 @@ article .header {
 }
 
 @media (max-width: 319px) {
-  body {
+  .inside {
     width: 90%;
     margin: 0;
     padding: 0 5%;
@@ -214,13 +215,10 @@ article .header {
   nav {
     line-height: 1.6;
   }
-  .fork {
-    right: 5%;
-  }
 }
 
 @media (min-width: 320px) {
-  body {
+  .inside {
     width: 90%;
     margin: 0;
     padding: 0 5%;
@@ -251,13 +249,10 @@ article .header {
   nav {
     margin: 0 0;
   }
-  .fork {
-    right: 5%;
-  }
 }
 
 @media (min-width: 60rem) {
-  body {
+  .inside {
     width: 60rem;
     margin: 0 auto;
     padding: 0;
@@ -289,8 +284,5 @@ article .header {
   .logo a {
     float: left;
     font-size: 1.2rem;
-  }
-  .fork {
-    right: calc(50% - 30rem)
   }
 }
