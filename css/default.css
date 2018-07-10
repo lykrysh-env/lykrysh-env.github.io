@@ -73,20 +73,46 @@ img {
  z-index: 2;
  position: absolute;
  top: 0;
- right: -20rem;
+ right: -18rem;
  height:5rem;
- width: 27rem;
- background: red;
+ width: 25rem;
+ background: #fff;
 
- -webkit-transition: right 0.50s; 
- -moz-transition: right 0.50s; 
- -ms-transition: right 0.50s; 
- -o-transition: right 0.50s;
- transition: right 0.5s;
+ -webkit-transition: right 0.30s ease-out; 
+ -moz-transition: right 0.30s ease-out; 
+ -ms-transition: right 0.30s ease-out; 
+ -o-transition: right 0.30s ease-out;
+ transition: right 0.3s ease-out;
 }
 
-.topformlong {
- width: 33rem;
+.search-style { 
+ background: none; 
+ padding-left: 1rem; padding-top: 1.1rem; padding-right: 1px; 
+ margin: 0; border: 0; 
+}
+
+.search-style input[type=text]{
+ outline: none; font-family: reg; #000; font-size: 1.4rem; width: 98%;
+ box-sizing: border-box; 
+ -webkit-box-sizing: border-box;-moz-box-sizing: border-box; 
+ padding-left: 2rem; padding-right: 2rem; padding-top: 0.4rem; padding-bottom: 0.5rem;
+ border: 1px solid #cc0000; border-radius: 2rem;
+}
+
+.search-style input[type=text]:focus {
+ outline: none;
+ box-shadow: 0 0 8px #dd0000;
+ border:1px solid #cc0000;
+
+ -webkit-transition: 0.50s ease-out; 
+ -moz-transition: 0.50s ease-out; 
+ -ms-transition: 0.50s ease-out; 
+ -o-transition: 0.50s ease-out;
+ transition: ease-out 0.5s;
+}
+
+.searchfield-full {
+  width: 100%; background-color: white;
 }
 
 .mid {
