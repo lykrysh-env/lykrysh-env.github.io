@@ -1,16 +1,29 @@
 <html>
 <head>
 <link href="css/default.css" rel="stylesheet">
-</head>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/default.js"></script>
 
+
+</head>
 <body>
+
 <div id="topleft" class="top noselect">
 	<a href="https://hub.darcs.net/lykrysh"><img src="images/darcs-bw.png"></a>
 	<a href="https://github.com/lykrysh"><img src="images/github.png"></a>
 </div>
-<div id="topright" class="top noselect">
-	<img src="images/team.png">
+<div id="topright" class="top pntcursor noselect">
+	<img id="teambut" src="images/team.png">
 </div>
+<div id="topform" class="topform noselect">
+</div>
+<script type="text/javascript">
+$(document).ready(function(){	
+	$('#topform').css('right') == '-20rem';
+	sessionStorage.setItem('formIsVisible', 'no');
+});
+</script>
+
 <div class="mid">
 	<div class="noselect">
 		<img src="images/amarlyllis.png">

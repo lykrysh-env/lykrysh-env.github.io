@@ -30,11 +30,6 @@ img {
             user-select: none; 
 }
 
-.top a:hover {
-  opacity: 0.7;
-  filter: alpha(opacity=70);
-}
-
 #topleft {
  z-index: 2;
  position: absolute;
@@ -58,14 +53,40 @@ img {
  top: 0;
  right: 0;
  height:5rem;
- width: 30rem;
+ width: 7rem;
  text-align: right;
+ background: #fff;
 }
 
 #topright img {
  width: 3.7rem;
  height: 3.7rem;
  margin: 0.7rem 2rem 0.6rem 0rem;
+}
+
+.top a:hover, #topright img:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+.topform {
+ z-index: 2;
+ position: absolute;
+ top: 0;
+ right: -20rem;
+ height:5rem;
+ width: 27rem;
+ background: red;
+
+ -webkit-transition: right 0.50s; 
+ -moz-transition: right 0.50s; 
+ -ms-transition: right 0.50s; 
+ -o-transition: right 0.50s;
+ transition: right 0.5s;
+}
+
+.topformlong {
+ width: 33rem;
 }
 
 .mid {
