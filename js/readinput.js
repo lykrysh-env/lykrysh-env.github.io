@@ -1,11 +1,11 @@
 $.doAsyncCall = function(myvalue) { 
 	$.ajax({
-		//url: 'http://localhost:8080/kv',
-		url: 'http://34.210.223.218:8080/kv',
+		url: 'https://y418p9act1.execute-api.us-west-2.amazonaws.com/bunny',
+		//url: 'http://34.210.223.218:8080/kv',
 		crossDomain: true,
 		data: {
 			key : myvalue,
-			format: 'text'
+			format: 'json'
 		},
 		error: function(e) {
 			$('#msg').text('');
@@ -16,6 +16,7 @@ $.doAsyncCall = function(myvalue) {
 		success: function(response) {
          		$('#msg').text(response.match);
       		},
+		contentType:"application/json",
       		type: 'POST'
     	});
 };
