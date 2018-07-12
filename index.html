@@ -3,8 +3,7 @@
 <link href="css/default.css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/default.js"></script>
-
-
+<script type="text/javascript" src="js/readinput.js"></script>
 </head>
 <body>
 
@@ -16,9 +15,10 @@
 	<img id="teambut" src="images/team.png">
 </div>
 <div id="topform" class="topform noselect">
-	<form autocomplete="off" action="" class="search-style">
-		<input id="searchinput" type="text" name="search" class="searchfield-full" onPaste="" onkeydown=""/>
+	<form spellcheck="false" autocomplete="off" action="javascript:readInput(searchinput.value)" id="searchform" class="search-style">
+		<input id="searchinput" value="guest" type="text" name="whoisteam" class="searchfield-full" onPaste="" onkeydown=""/>
 	</form>
+	<small id="msg"></small>
 </div>
 <script type="text/javascript">
 $(document).ready(function(){	
@@ -39,10 +39,8 @@ $(document).ready(function(){
 			<li>uses JavaScript + Haskell + Rust;
 			<li>has done <div class="bold">startup projects</div> and <div class="bold">crypto</div> stuff;
 			<li>replies quickly from <div class="bold">lykrysh at gmail</div>.
-
 		</ul>
 	</div>
-
 </div>
 </body>
 </html>

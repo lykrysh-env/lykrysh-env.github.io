@@ -52,7 +52,7 @@ img {
  position: absolute;
  top: 0;
  right: 0;
- height:5rem;
+ height:6rem;
  width: 7rem;
  text-align: right;
  background: #fff;
@@ -61,7 +61,7 @@ img {
 #topright img {
  width: 3.7rem;
  height: 3.7rem;
- margin: 0.7rem 2rem 0.6rem 0rem;
+ margin: 0.7rem 2rem 1.6rem 0rem;
 }
 
 .top a:hover, #topright img:hover {
@@ -74,7 +74,7 @@ img {
  position: absolute;
  top: 0;
  right: -18rem;
- height:5rem;
+ height:6rem;
  width: 25rem;
  background: #fff;
 
@@ -85,24 +85,31 @@ img {
  transition: right 0.3s ease-out;
 }
 
+.topform small {
+ font-family: reg; font-size: 1.0rem; line-height: 1.0rem;
+ margin-left: 2.6rem;margin-top: 0; color: #ff9999;
+}
+
 .search-style { 
  background: none; 
  padding-left: 1rem; padding-top: 1.1rem; padding-right: 1px; 
- margin: 0; border: 0; 
+ margin-bottom: 0.5rem; border: 0; 
 }
 
 .search-style input[type=text]{
- outline: none; font-family: reg; #000; font-size: 1.4rem; width: 98%;
+ outline: none; font-family: reg; font-size: 1.4rem; width: 98%;
  box-sizing: border-box; 
  -webkit-box-sizing: border-box;-moz-box-sizing: border-box; 
- padding-left: 2rem; padding-right: 2rem; padding-top: 0.4rem; padding-bottom: 0.5rem;
+ padding-left: 1.5rem; padding-right: 2rem; padding-top: 0.4rem; padding-bottom: 0.6rem;
  border: 1px solid #cc0000; border-radius: 2rem;
+ color: #ddd;
 }
 
 .search-style input[type=text]:focus {
  outline: none;
  box-shadow: 0 0 8px #dd0000;
  border:1px solid #cc0000;
+ color: #000;
 
  -webkit-transition: 0.50s ease-out; 
  -moz-transition: 0.50s ease-out; 

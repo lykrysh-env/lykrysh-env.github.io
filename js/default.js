@@ -15,5 +15,6 @@ $(document).ready(function() {
 			$('#topform').css('right', '-20rem');
 
 		}
+         	$('#msg').text('');
 	});
 });
