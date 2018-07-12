@@ -14,11 +14,7 @@ $.doAsyncCall = function(myvalue) {
       		},
 		dataType: 'json',
 		success: function(response) {
-			if (response.notfound) {
-         			$('#msg').text('not found');
-			} else {
-         			$('#msg').text(response.match);
-			}
+         		$('#msg').text(response.match);
       		},
       		type: 'POST'
     	});
