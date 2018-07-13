@@ -1,23 +1,22 @@
 $.doAsyncCall = function(myvalue) { 
 	$.ajax({
-		url: 'https://y418p9act1.execute-api.us-west-2.amazonaws.com/bunny',
-		//url: 'http://34.210.223.218:8080/kv',
+      		type: 'POST',
+		url: 'https://1xxe5ht3h5.execute-api.us-west-2.amazonaws.com/first/kv',
 		crossDomain: true,
 		data: {
-			key : myvalue,
-			format: 'json'
+			key : myvalue
 		},
+		contentType:"application/json",
+		dataType: 'json',
+
 		error: function(e) {
 			$('#msg').text('');
 			//$('#msg').text("http request error");
 			console.log(e);
       		},
-		dataType: 'json',
-		success: function(response) {
-         		$('#msg').text(response.match);
-      		},
-		contentType:"application/json",
-      		type: 'POST'
+		success: function(responsedata, status) {
+         		$('#msg').text(responsedata.match + " " + status);
+      		}
     	});
 };
 
