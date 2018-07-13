@@ -1,11 +1,9 @@
 $.doAsyncCall = function(myvalue) { 
 	$.ajax({
       		type: 'POST',
-		url: 'https://1xxe5ht3h5.execute-api.us-west-2.amazonaws.com/first/kv',
+		url: 'https://0vym4r6sh7.execute-api.us-west-2.amazonaws.com/first/kv',
 		crossDomain: true,
-		data: {
-			key : myvalue
-		},
+		data: JSON.stringify({ "key" : myvalue }),
 		contentType:"application/json",
 		dataType: 'json',
 
