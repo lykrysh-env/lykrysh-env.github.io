@@ -125,7 +125,7 @@ img {
 .mid {
  margin: auto;
  float: center;
- width: 50rem;
+ width: 44rem;
  height: 40rem;
  margin-top: calc(50vh - 24rem);
  text-align: center;
@@ -156,7 +156,7 @@ img {
 }
 
 .list {
- margin: 6rem 0 0 7rem;
+ margin: 5rem 0 0 4rem;
  float: center;
  width: 100%;
  
@@ -164,7 +164,12 @@ img {
 }
 
 .list ul {
- list-style-type: square;
+ list-style-type: none;
+}
+.list ul li img {
+ width: 1.6rem; height: 1.6rem;
+ margin-bottom: -0.3rem;
+ margin-right: 0.6rem;
 }
 
 .list .bold {
