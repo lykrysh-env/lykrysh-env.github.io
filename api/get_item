@@ -1,0 +1,96 @@
+--------------------------------
+Create API: get_item
+new resource: /kv (Enable API Gateway CORS)
+new method: POST - Lambda Function
+
+--------------------------------
+Create Lambda function: get_item_func
+existing role: lambda_basic_execution
+
+var aws = require('aws-sdk');
+exports.handler = function (event, context, callback) {
+    var dynamo = new aws.DynamoDB({region: 'us-west-2'});
+    var nameInfo = event.key;
+    var params = {
+        TableName : 'key_match',
+        Key : { "key" : { "S" : nameInfo }, },
+        AttributesToGet: [ 'key', 'match' ],
+        ConsistentRead: true,
+    }
+    dynamo.getItem(params, function(err, data) {
+        console.log("Pre-processing - data view:  ", data.Item);
+        if (err) {
+            console.log(err, err.stack);
+            callback (err);
+        } else {
+            console.log("should work? " + JSON.stringify(data)); 
+            var obj = new Object();
+            obj.key = data.Item.key.S;
+            obj.match = data.Item.match.S;
+            callback (null, obj);
+        }
+    });
+};
+
+Execution role: lambda_basic_execution
+
+---------------------------------
+Create table: key_match
+primary key: key
+Create item: key, match
+
+--------------------------------
+[[ Lambda need 'permission' to access DynamoDB ]]
+
+IAM Management -> Roles -> Click role name 'lambda_basic_execution'
+
+[Permissions]
+(+) Add inline policy --> 
+Choose a service: DynamoDb --> Check 'GetItem'
+Resources: copy&paste ARN from the DBtable (It's in Overview -> Amazon Resource Name (ARN))
+Review policy -> name: key_match_policy -> Create policy
+
+[Trust relationships]
+Edit trust relationship
+
+        "Service": [
+          "apigateway.amazonaws.com",
+          "lambda.amazonaws.com"
+        ]
+
+-----------------------------------
+API -> give Lambda Function 'get_item_func' --> Save --> click 'POST' 
+
+Post- Integration Request
+Mapping Templates: application/json
+{ "key" : $input.json('$.key') }
+
+Integration Response
+Mapping Templates: application/json
+{ "match" : "$input.path('$.match')" }
+
+Now we can test with:
+Request Body
+{ "key" : "one" }
+
+-----------------------------------
+Actions -> Access-Control-Allow-Origin*: 'https://www.lykry.sh'
+Deploy API
+copy the URL --> add /js/readinput.js (don't forget /kv (resource name) at the end of the URL)
+
+	$.ajax({
+      		type: 'POST',
+		url: 'https://tgzetny5lb.execute-api.us-west-2.amazonaws.com/prod/kv',
+		crossDomain: true,
+		data: JSON.stringify({ "key" : myPASSEDvalue }),
+		contentType:"application/json",
+		dataType: 'json',
+
+		error: function(e) {
+			$('#msg').text('');
+			console.log(e);
+      		},
+		success: function(responsedata, status) {
+         		$('#msg').text(responsedata.match);
+      		}
+    	});

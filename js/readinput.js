@@ -1,7 +1,7 @@
 $.doAsyncCall = function(myvalue) { 
 	$.ajax({
       		type: 'POST',
-		url: 'https://0vym4r6sh7.execute-api.us-west-2.amazonaws.com/first/kv',
+		url: 'https://tgzetny5lb.execute-api.us-west-2.amazonaws.com/prod/kv',
 		crossDomain: true,
 		data: JSON.stringify({ "key" : myvalue }),
 		contentType:"application/json",
@@ -13,7 +13,7 @@ $.doAsyncCall = function(myvalue) {
 			console.log(e);
       		},
 		success: function(responsedata, status) {
-         		$('#msg').text(responsedata.match + " " + status);
+         		$('#msg').text(responsedata.match);
       		}
     	});
 };
