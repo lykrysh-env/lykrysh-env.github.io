@@ -13,7 +13,12 @@ $.doAsyncCall = function(myvalue) {
 			console.log(e);
       		},
 		success: function(responsedata, status) {
-         		$('#msg').text(responsedata.match);
+			if (responsedata.match == "") {
+				$('#msg').text("eh?");
+			} else {
+         			//$('#msg').text(responsedata.match);
+         			$('#msg').text("");
+			}
       		}
     	});
 };
