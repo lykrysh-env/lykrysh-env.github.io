@@ -1,6 +1,7 @@
 @font-face { font-family: reg; src: url('UbuntuMono-Regular.ttf')}
 @font-face { font-family: bold; src: url('UbuntuMono-Bold.ttf')}
 @font-face { font-family: lykrysh; src: url('PlayfairDisplaySC-Bold.ttf')}
+@font-face { font-family: hangul; src: url('Spoqa-Han-Sans-Regular.ttf')}
 
 html {}
 
@@ -156,16 +157,16 @@ img {
 }
 
 .list {
- margin: 5rem 0 0 4rem;
+ margin: 5rem 0 0 7rem;
  float: center;
  width: 100%;
- 
  text-align: left;
 }
 
 .list ul {
  list-style-type: none;
 }
+
 .list ul li img {
  width: 1.6rem; height: 1.6rem;
  margin-bottom: -0.3rem;
@@ -174,5 +175,14 @@ img {
 
 .list .bold {
  font-family: bold; 
+}
+
+.list .spoqa {
+ font-family: hangul; 
+ font-size: 1.2rem;
+}
+
+.list .inline {
  display: inline;
 }
+ 

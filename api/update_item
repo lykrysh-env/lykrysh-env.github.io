@@ -1,0 +1,100 @@
+--------------------------------
+Create API: update_item
+new resource: /kv (Enable API Gateway CORS)
+new method: POST - Lambda Function
+
+--------------------------------
+Create Lambda function: get_item_func
+existing role: new_lambda_basic_execution (I made with deleteItem + putItem)
+
+-----------------------------------
+
+
+
+
+
+-----------------------------------
+API -> give Lambda Function 'update_item_func' --> Save --> click 'POST' 
+
+Post- Integration Request
+Mapping Templates: application/json
+{ "key" : $input.json('$.key') }
+
+Integration Response
+Mapping Templates: application/json
+{ "key" : "$input.path('$.key')", "match" : "$input.path('$.match')" }
+
+Now we can test with:
+Request Body
+{ "key" : "one" }
+
+-----------------------------------
+
+
+var aws = require('aws-sdk');
+exports.handler = function (event, context, callback) {
+    var dynamo = new aws.DynamoDB({region: 'us-west-2'});
+    
+    // Assumption: 
+    // {
+    //  "key": "two",
+    //  "match": "secret_for_two"
+    // }
+
+    var oldkey = "two";
+    var oldmatch = "secret_for_two";
+    
+    // Delete item    
+    var nameInfo = oldkey;
+    var params = {
+        TableName : 'key_match',
+        Key : { "key" : { "S" : nameInfo }, }
+    }
+    dynamo.deleteItem(params, function(err, data) {
+        console.log("Pre-processing - data view:  ", data);
+        if (err) {
+            console.log(err, err.stack);
+        } else {
+            console.log("deleted? " + JSON.stringify(data)); 
+        }
+    });
+    
+    // Add item    
+    var new_key = "new_two";
+    params = {
+        TableName : 'key_match',
+        Item : { "key" : { "S" : new_key }, "match" : { "S" : oldmatch } }
+    }
+    dynamo.putItem(params, function(err, data) {
+        console.log("Pre-processing - data view:  ", data);
+        if (err) {
+            console.log(err, err.stack);
+        } else {
+            console.log("added? " + JSON.stringify(data)); 
+        }
+    });
+    
+    // Check input
+    var params = {
+        TableName : 'key_match',
+        Key : { "key" : { "S" : new_key }, },
+        AttributesToGet: [ 'key', 'match' ],
+        ConsistentRead: true,
+    }
+    dynamo.getItem(params, function(err, data) {
+        console.log("Pre-processing - data view:  ", data.Item);
+        if (err) {
+            console.log(err, err.stack);
+            callback (err);
+        } else {
+            console.log("checked? " + JSON.stringify(data)); 
+            var obj = new Object();
+            obj.key = data.Item.key.S;
+            obj.match = data.Item.match.S;
+            callback (null, obj);
+        }
+    });
+};
+
+
+curl -H "Content-Type: application/json" -X POST -d "{\"key1\": \"30\"}" https://pekdudne7d.execute-api.us-east-1.amazonaws.com/prod
