@@ -4,7 +4,6 @@ $(document).ready(function() {
         	if (curr == 'no') {
 			$('#topform').css('right', '7rem');
 			sessionStorage.setItem('formIsVisible', 'yes');
-
 		} else {
 			sessionStorage.setItem('formIsVisible', 'no');
 		}
@@ -13,8 +12,13 @@ $(document).ready(function() {
 		var curr = sessionStorage.getItem('formIsVisible');
         	if (curr == 'yes') {
 			$('#topform').css('right', '-20rem');
-
 		}
          	$('#msg').text('');
+	});
+	$('#searchinput').focusin(function() {
+         	$('#msg').css('color', 'black');
+	});
+	$('#searchinput').focusout(function() {
+         	$('#msg').css('color', '#eee');
 	});
 });

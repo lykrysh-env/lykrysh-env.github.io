@@ -74,7 +74,7 @@ img {
  position: absolute;
  font-family: reg; font-size: 1.0rem; line-height: 1.0rem;
  right: 8.5rem; top: 2rem;
- color: #ff3333;
+ color: #eee;
 }
 
 .topform {
@@ -92,8 +92,6 @@ img {
  -o-transition: right 0.30s ease-out;
  transition: right 0.3s ease-out;
 }
-
-
 
 .search-style { 
  background: none; 
