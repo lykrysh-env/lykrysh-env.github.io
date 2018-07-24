@@ -104,14 +104,14 @@ img {
  box-sizing: border-box; 
  -webkit-box-sizing: border-box;-moz-box-sizing: border-box; 
  padding-left: 1.5rem; padding-right: 2rem; padding-top: 0.4rem; padding-bottom: 0.6rem;
- border: 1px solid #222; border-radius: 2rem;
+ border: 1px solid #ff0000; border-radius: 2rem;
  color: #eee;
 }
 
 .search-style input[type=text]:focus {
  outline: none;
- box-shadow: 0 0 0.9rem #777;
- border:1px solid #222;
+ box-shadow: 0 0 0.9rem #ff6666;
+ border:1px solid #dd0000;
  color: #000;
 
  -webkit-transition: 0.50s ease-out; 
@@ -125,12 +125,23 @@ img {
   width: 100%; background-color: white;
 }
 
+.full {
+ width: 100%;
+ height: 100vh;
+}
+.bottom {
+ width: 100%;
+ min-height: 880px;
+ background: black;
+}
+
 .mid {
- margin: auto;
- float: center;
+ z-index: 2;
+ position: absolute;
  width: 44rem;
  height: 40rem;
- margin-top: calc(50vh - 24rem);
+ margin-top: calc(55vh - 20rem);
+ margin-left: calc(50% - 23rem);
  text-align: center;
 
  font-family: reg; 
