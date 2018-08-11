@@ -18,7 +18,7 @@ $.doAsyncCall = function(myvalue) {
 				$('#msg').text("eh?");
 			} else {
          			//$('#msg').text(responsedata.match);
-         			$('#msg').text(""); $('#teambut').fadeout(slow);
+         			$('#msg').text(""); $('#teambut').fadeOut("slow");
 				//window.location.replace('dummy.html');
 			}
       		}
