@@ -18,8 +18,8 @@ $.doAsyncCall = function(myvalue) {
 				$('#msg').text("eh?");
 			} else {
          			//$('#msg').text(responsedata.match);
-         			$('#msg').text("");
-				window.location.replace('dummy.html');
+         			$('#msg').text(""); $('#teambut').fadeout(slow);
+				//window.location.replace('dummy.html');
 			}
       		}
     	});

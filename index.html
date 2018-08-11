@@ -1,55 +1,70 @@
-<html>
-<head>
-<link rel="icon" type="image/png" href="images/lykrysh2-icon.png" />
-<link href="css/base.css" rel="stylesheet">
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/default.js"></script>
-<script type="text/javascript" src="js/readinput.js"></script>
-</head>
-<body>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lykrysh</title>
+	<link rel="icon" type="image/png" href="images/lykrysh2-icon.png" />
+        <link rel="stylesheet" href="css/added.css" media="none" onload="this.media='all';" />
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/readinput.js"></script>
+    </head>
+    <body>
 
-<div id="topleft" class="top noselect">
-	<a href="https://hub.darcs.net/lykrysh"><img src="images/darcs-bw.png"></a>
-	<a href="https://github.com/lykrysh"><img src="images/github.png"></a>
-</div>
-<div id="topright" class="top pntcursor noselect">
-	<img id="teambut" src="images/team.png">
-	<small id="msg"></small>
-</div>
-<div id="topform" class="topform noselect">
-	<form spellcheck="false" autocomplete="off" action="javascript:readInput(searchinput.value)" id="searchform" class="search-style">
+      <div class="everything">
+        <header class="noselect">
+          <div class="lykrysh pnthcursor">
+            <img src="images/lykrysh2transparent.png">
+          </div>
+          <small>Lykrysh</small>Web Developer
+        </header>
+        <main role="main">
+
+        </main>
+        <footer class="noselect">
+            <a href="https://gitlab.com/lykrysh"><img class="pntcursor" src="images/gitlab-icon.png"></a>
+            <a href="https://lykrysh.gitlab.io/toolbox"><img class="pntcursor" src="images/wrench-icon.png"></a>
+            <small>lykrysh dot gmail dot com</small>
+            <small class="copy">not a dog bot</small>
+        </footer>
+      </div>
+
+      <div class="biglink">
+        <div id="topright">
+	   <img id="teambut" class="pntcursor noselect" src="images/key-icon.png">
+	   <small id="msg"></small>
+        </div>
+        <div id="topform" class="topform noselect">
+	  <form spellcheck="false" autocomplete="off" action="javascript:readInput(searchinput.value)" id="searchform" class="search-style">
 		<input id="searchinput" value="guest" type="text" name="whoisteam" class="searchfield-full" onPaste="" onkeydown=""/>
-	</form>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){	
-	$('#topform').css('right') == '-20rem';
-	sessionStorage.setItem('formIsVisible', 'no');
-});
-</script>
-<div class="full">
-<div class="mid">
-	<div class="noselect">
-		<img src="images/lykrysh2.png">
-		<h1>Lykrysh</h1>
-		<p>Back-end Coder</p>
-	</div>
-	<div class="list">
-		<ul>
-			<li><img class="noselect" src="images/like-icon.png"> database, data analysis
-			<!--<li><img class="noselect" src="images/wrench-icon.png"> Haskell + Rust + AWS-->
+	  </form>
+        </div>
+        <script type="text/javascript">
+          $(document).ready(function(){	
+	    $('#topform').css('top','-3rem');
+	    $('#teambut').data('clicked', false);
+	    $('#teambut').hover(function() {
+               if ($(this).data('clicked') == false) {
+		 $('#topform').css('top', '0.1rem');
+               } else {
+                 $(this).data('clicked', false);
+               }
+	    });
+	    $('#teambut').click(function() {
+		$('#topform').css('top', '-3rem');
+         	$('#msg').text('');
+                $(this).data('clicked', true);
+	    });
+	    $('#searchinput').focusin(function() {
+         	$('#msg').css('color', 'black'); 
+	    });
+	    $('#searchinput').focusout(function() {
+         	$('#msg').css('color', '#eee');
+	    });
+          });
+        </script>
+      </div>
 
-			<!--googleoff: index-->
-      <li><img class="noselect" src="images/location-icon.png"> Vancouver BC
-			<li><img class="noselect" src="images/hangouts-icon.png"> lykrysh at gmail dot com
-			<!--googleon: index-->
-		</ul>
-	</div>
-</div>
-</div>
-
-<div class="bottom">
-
-</div>
-</body>
+    </body>
 </html>

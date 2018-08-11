@@ -1,0 +1,208 @@
+@font-face { font-family: regularfont; src: url('Roboto-Regular.ttf')}
+@font-face { font-family: lightfont; src: url('Roboto-Light.ttf')}
+
+body {
+  max-width: 57rem;
+  margin: auto;
+}
+
+body .everything {
+  z-index: 1;
+  position: absolute;
+  width: calc(100% - 2rem);
+  max-width: 55rem;
+  margin: 0 1rem;
+  font-family: regularfont, sans-serif;
+  font-weight:normal; 
+  line-height: 1.6rem; 
+  font-size: 1.0rem;
+  color: #000;
+  background: #fff;
+}
+
+small {
+ font-family: regularfont, sans-serif;
+ font-size: 0.8rem;
+}
+
+p {
+  font-size: 1.0rem;
+  padding-bottom: 0rem; 
+  color: #000;
+}
+
+a {
+  color: #e60000;
+}
+
+a:hover {
+  color: #ff3333;
+}
+
+header {
+  text-align: center;
+  font-family: lightfont, sans-serif;
+  font-size: 1.0rem;
+  border-bottom: 0.2rem solid #000;
+  padding-top: 3.5rem;
+  padding-bottom: 3rem;
+}
+
+header small {
+ line-height: 0.8rem; 
+ color: #888;
+ padding-right: 0.5rem;
+}
+
+header .lykrysh {
+ margin: 0.5rem calc(50% - 3rem);
+ width: 6rem;
+ height: 6rem;
+ background: rgba(255,255,255, 0.2);
+ border-radius: 3rem;
+}
+
+header .lykrysh img {
+ margin: 0.2rem;
+ width: 5.6rem;
+ height: 5.6rem;
+}
+
+header .lykrysh:hover {
+ background: rgba(255,255,255,1.0);
+ box-shadow: 0.05rem 0.05rem #666;
+}
+
+main {
+  min-height: 72rem;
+background-color:white;
+background-image:
+radial-gradient(#000 9px, transparent 10px),        
+repeating-radial-gradient(#000 0, #000 4px, transparent 5px, transparent 20px, #000 21px, #000 25px, transparent 26px, transparent 50px);    
+background-size: 30px 30px, 90px 90px; 
+background-position: 0 0;
+}
+
+body .biglink {
+ z-index: 100;
+ position: fixed;
+ width: calc(100% - 2rem);
+ max-width: 55rem;
+ margin: 0 1rem;
+ top: 0;
+ text-align: right;
+}
+
+body .biglink #topright {
+ z-index: 103;
+ position: absolute;
+ top: 0;
+ right: 0;
+ margin-top:1rem;
+}
+
+body .biglink #topright img {
+ width: 2.5rem;
+ height: 2.5rem;
+ margin: 0.0rem 0rem 0rem 0rem;
+}
+
+body .biglink #topright img:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+body .biglink #topright #msg {
+ z-index: 104;
+ position: absolute;
+ right: 0rem; top: 2.3rem;
+ color: #eee;
+}
+
+body .biglink .topform {
+ z-index: 102; 
+ position: absolute;
+ top: -3rem;
+ right: 3.3rem;
+ height:4rem;
+ width: 20rem;
+ -webkit-transition: top 0.30s ease-out; 
+ -moz-transition: top 0.30s ease-out; 
+ -ms-transition: top 0.30s ease-out; 
+ -o-transition: top 0.30s ease-out;
+ transition: top 0.3s ease-out;
+}
+
+.search-style { 
+ background: none; 
+ padding-left: 1rem; padding-top: 1.1rem; padding-right: 1px; 
+ margin-bottom: 0.5rem; border: 0; 
+}
+
+.search-style input[type=text]{
+ outline: none; 
+ font-family: regularfont;
+ font-weight:normal; 
+ font-size: 1.0rem;
+ width: 98%;
+ box-sizing: border-box; 
+ -webkit-box-sizing: border-box;-moz-box-sizing: border-box; 
+ padding-left: 1.5rem; padding-right: 2rem; padding-top: 0.3rem; padding-bottom: 0.3rem;
+ border: 1px solid #ff0000; border-radius: 1rem;
+ color: #eee;
+}
+
+.search-style input[type=text]:focus {
+ outline: none;
+ box-shadow: 0 0 0.9rem #ff6666;
+ border:1px solid #dd0000;
+ color: #000;
+ -webkit-transition: 0.50s ease-out; 
+ -moz-transition: 0.50s ease-out; 
+ -ms-transition: 0.50s ease-out; 
+ -o-transition: 0.50s ease-out;
+ transition: ease-out 0.5s;
+}
+
+.searchfield-full {
+  width: 100%; background-color: white;
+}
+
+footer {
+  margin-top: 3rem;
+  margin-bottom: 11rem;
+  padding: 1.2rem 0;
+  border-top: 0.2rem solid #000;
+  text-align: right;
+}
+
+footer small {
+  line-height: 1.4rem;
+  display: block;
+}
+
+footer .copy {
+  color: #888;
+}
+
+footer img {
+  width: 2rem;
+  height: 2rem;
+  margin-left: 1rem;
+}
+footer img:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+
+.pntcursor {cursor:pointer;}
+
+.noselect {
+  -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
+}
