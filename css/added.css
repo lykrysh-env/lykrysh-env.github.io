@@ -2,7 +2,7 @@
 @font-face { font-family: lightfont; src: url('Roboto-Light.ttf')}
 
 body {
-  max-width: 57rem;
+  max-width: 56.5rem;
   margin: auto;
 }
 
@@ -10,7 +10,7 @@ body .everything {
   z-index: 1;
   position: absolute;
   width: calc(100% - 2rem);
-  max-width: 55rem;
+  max-width: 54.5rem;
   margin: 0 1rem;
   font-family: regularfont, sans-serif;
   font-weight:normal; 
@@ -21,29 +21,13 @@ body .everything {
 }
 
 small {
- font-family: regularfont, sans-serif;
  font-size: 0.8rem;
-}
-
-p {
-  font-size: 1.0rem;
-  padding-bottom: 0rem; 
-  color: #000;
-}
-
-a {
-  color: #e60000;
-}
-
-a:hover {
-  color: #ff3333;
 }
 
 header {
   text-align: center;
   font-family: lightfont, sans-serif;
   font-size: 1.0rem;
-  border-bottom: 0.2rem solid #000;
   padding-top: 3.5rem;
   padding-bottom: 3rem;
 }
@@ -75,12 +59,21 @@ header .lykrysh:hover {
 
 main {
   min-height: 72rem;
-background-color:white;
-background-image:
-radial-gradient(#000 9px, transparent 10px),        
-repeating-radial-gradient(#000 0, #000 4px, transparent 5px, transparent 20px, #000 21px, #000 25px, transparent 26px, transparent 50px);    
-background-size: 30px 30px, 90px 90px; 
-background-position: 0 0;
+  background-color: #ffffff;
+}
+
+p {
+  font-size: 1.0rem;
+  padding-bottom: 0rem; 
+  color: #000;
+}
+
+a {
+  color: #e60000;
+}
+
+a:hover {
+  color: #ff3333;
 }
 
 body .biglink {
@@ -141,7 +134,7 @@ body .biglink .topform {
 
 .search-style input[type=text]{
  outline: none; 
- font-family: regularfont;
+ font-family: lightfont;
  font-weight:normal; 
  font-size: 1.0rem;
  width: 98%;
@@ -172,7 +165,6 @@ footer {
   margin-top: 3rem;
   margin-bottom: 11rem;
   padding: 1.2rem 0;
-  border-top: 0.2rem solid #000;
   text-align: right;
 }
 
@@ -194,7 +186,6 @@ footer img:hover {
   opacity: 0.7;
   filter: alpha(opacity=70);
 }
-
 
 .pntcursor {cursor:pointer;}
 
