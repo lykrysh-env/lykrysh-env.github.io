@@ -57,8 +57,15 @@ header .lykrysh:hover {
  box-shadow: 0.05rem 0.05rem #666;
 }
 
+header .lykrysh:active {
+ -webkit-transition: none;
+ transition: none;
+ background: rgba(250,250,250,1.0);
+ box-shadow: 0.05rem 0.05rem #000;
+}
+
 main {
- min-height: 67rem;
+ min-height: 48.5rem;
  -webkit-transition: opacity 5s ease-out;
  transition: opacity 5s ease-out;
  opacity: 0.0;
