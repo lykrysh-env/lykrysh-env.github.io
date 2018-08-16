@@ -58,8 +58,10 @@ header .lykrysh:hover {
 }
 
 main {
-  min-height: 72rem;
-  background-color: #ffffff;
+ min-height: 67rem;
+ -webkit-transition: opacity 5s ease-out;
+ transition: opacity 5s ease-out;
+ opacity: 0.0;
 }
 
 p {
